@@ -1,0 +1,36 @@
+package Amadeus.CaseStudy;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class UITest {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://flights-app.pages.dev");
+		
+		WebElement textBox1 = driver.findElement(By.id("headlessui-combobox-input-:Rq9lla:"));
+		textBox1.sendKeys("Istanbul");
+		textBox1.sendKeys(Keys.ENTER);
+		
+		WebElement textBox2 = driver.findElement(By.id("headlessui-combobox-input-:Rqhlla:"));
+		textBox2.sendKeys("Istanbul");
+		textBox2.sendKeys(Keys.ENTER);
+		
+		String input1 = textBox1.getText();
+		String input2 = textBox2.getText();
+		
+		if(input1 == input2) {
+			System.out.println("Fail");
+		}
+		else {
+			System.out.println("Success");
+		}
+		
+	}
+
+}
